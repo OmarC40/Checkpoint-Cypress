@@ -60,21 +60,24 @@ describe('Session Test ', () => {
   })
 
 
-  it.only('Should reuse session and access profile directly', () => {
+  it('Access profile directly', () => {
      
       cy.visit('https://demoqa.com/profile');
-    
-
-       
+     
   });
 
-  /*it('Should visit login page but stay logged in', () => {
-      cy.session('user-session', () => {
-          cy.visit('https://demoqa.com/login')
-      });
+  it.only('Intercep Links', () => {
+    cy.intercept('GET', 'https://demoqa.com/created').as('Created');
+    cy.visit('https://demoqa.com/links');
+    cy.get('[id="created"]').click()
+    cy.wait('@Created').then((interception) => {
+      expect(interception.response.statusCode).to.eq(201);
+      expect(interception.response.statusMessage).to.eq('Created');
+  });
 
-      
-      cy.url().should('include', '/profile');
-      cy.get('#userName-value').should('have.text', 'validUsername')
-  })*/
+   
+});
+
+
+
 });
