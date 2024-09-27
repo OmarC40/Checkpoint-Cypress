@@ -66,7 +66,16 @@ describe('Session Test ', () => {
      
   });
 
-  it.only('Intercep Links', () => {
+  
+
+
+
+});
+
+
+describe('Validate Api', () => {
+
+  it('Intercep Links', () => {
     cy.intercept('GET', 'https://demoqa.com/created').as('Created');
     cy.visit('https://demoqa.com/links');
     cy.get('[id="created"]').click()
@@ -79,5 +88,4 @@ describe('Session Test ', () => {
 });
 
 
-
-});
+})

@@ -25,31 +25,31 @@ describe('Test Suite',()=>{
     })
 
     it('primera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo 
     })
     it('segunda prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo 
     })
     it('tercera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo 
     })
     it('cuarta prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo  
     })
 })
 
 describe('Test Suite',()=>{
     it('primera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('segunda prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('tercera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('cuarta prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
 })
 
@@ -59,16 +59,16 @@ describe('Test Suite',()=>{
 
 describe('Test Suite',()=>{
     it('primera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('segunda prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('tercera prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
     it('cuarta prueba',()=>{
-        //aqui se pone el codigo que remos
+        //aqui se pone el codigo
     })
 })
 
