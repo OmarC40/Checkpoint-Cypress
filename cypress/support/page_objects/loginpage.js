@@ -77,6 +77,10 @@ export class LoginPage{
         cy.get('#userName-value').contains(user)
     }
 
+    faillogin(){
+        cy.get('[id="name"]').contains('Invalid username or password!')
+    }
+
 
     
 

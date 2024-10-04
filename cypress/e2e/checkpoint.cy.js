@@ -24,6 +24,7 @@ describe('Validate Login page', () => {
     loginPage.Username('Test400')
     loginPage.Password('Test4*002')
     loginPage.LoginBtn()
+    loginPage.faillogin()
   })
 
   it('New user Form Elements Validation',()=>{
