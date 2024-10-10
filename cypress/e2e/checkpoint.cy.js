@@ -1,5 +1,5 @@
 import { loginPage } from "../support/page_objects/loginpage"
-
+const userName = 'Test400';
 describe('Validate Login page', () => {
   
   beforeEach('login',()=>{
@@ -11,23 +11,23 @@ describe('Validate Login page', () => {
   })
 
   it('Login success', () => {
-    const userName = 'Test400';
     loginPage.WelcomeLabel()
     loginPage.Username(userName)
     loginPage.Password('Test4*00')
     loginPage.LoginBtn()
+    cy.url().should('include', '/profile');
     loginPage.UsernameValue(userName)
   })
 
   it('Login fail', () => {
     loginPage.WelcomeLabel()
-    loginPage.Username('Test400')
+    loginPage.Username(userName)
     loginPage.Password('Test4*002')
     loginPage.LoginBtn()
     loginPage.faillogin()
   })
 
-  it('New user Form Elements Validation',()=>{
+  it('New user Form',()=>{
     loginPage.NewUsaerButton()
   })
 
@@ -52,7 +52,7 @@ describe('Session Test ', () => {
   beforeEach('login',()=>{
     cy.session('userSession', () => {
       cy.visit('https://demoqa.com/login')
-      const userName = 'Test400';
+      //const userName = 'Test400';
       loginPage.Username(userName)
       loginPage.Password('Test4*00')
       loginPage.LoginBtn()
