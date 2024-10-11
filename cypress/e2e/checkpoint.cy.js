@@ -1,6 +1,8 @@
 import { loginPage } from "../support/page_objects/loginpage"
 const userName = 'Test400';
-describe('Validate Login page', () => {
+const passCorrect = 'Test4*00';
+const passincorrect = 'Test4*002';
+describe('USER STORY 1', () => {
   
   beforeEach('login',()=>{
     cy.visit('https://demoqa.com/login')
@@ -13,7 +15,7 @@ describe('Validate Login page', () => {
   it('Login success', () => {
     loginPage.WelcomeLabel()
     loginPage.Username(userName)
-    loginPage.Password('Test4*00')
+    loginPage.Password(passCorrect)
     loginPage.LoginBtn()
     cy.url().should('include', '/profile');
     loginPage.UsernameValue(userName)
@@ -22,7 +24,7 @@ describe('Validate Login page', () => {
   it('Login fail', () => {
     loginPage.WelcomeLabel()
     loginPage.Username(userName)
-    loginPage.Password('Test4*002')
+    loginPage.Password(passincorrect)
     loginPage.LoginBtn()
     loginPage.faillogin()
   })
@@ -34,7 +36,7 @@ describe('Validate Login page', () => {
 
 })
 
-describe('Validate loding page', () => {
+describe('USER STORY 2', () => {
 
   it('Login page response',()=>{
     cy.intercept('GET', 'https://buttons.github.io/buttons.js').as('loadWait');
@@ -48,11 +50,10 @@ describe('Validate loding page', () => {
 
 })
 
-describe('Session Test ', () => {
+describe('USER STORY 3 ', () => {
   beforeEach('login',()=>{
     cy.session('userSession', () => {
       cy.visit('https://demoqa.com/login')
-      //const userName = 'Test400';
       loginPage.Username(userName)
       loginPage.Password('Test4*00')
       loginPage.LoginBtn()
@@ -74,15 +75,15 @@ describe('Session Test ', () => {
 });
 
 
-describe('Validate Api', () => {
+describe('USER STORY 4', () => {
 
   it('Intercep Links', () => {
     cy.intercept('GET', 'https://demoqa.com/created').as('Created');
     cy.visit('https://demoqa.com/links');
     cy.get('[id="created"]').click()
     cy.wait('@Created').then((interception) => {
-      expect(interception.response.statusCode).to.eq(201);
-      expect(interception.response.statusMessage).to.eq('Created');
+      cy.wrap(interception).its('response.statusCode').should('eq',201)
+      cy.wrap(interception).its('response.statusMessage').should('eq','Created')
   });
 
    
